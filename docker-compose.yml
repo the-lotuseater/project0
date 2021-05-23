@@ -1,0 +1,11 @@
+version: '3'
+services:
+  redis-server:
+    image: 'redis'
+  node-app: #name of your app make this whatever you want.
+    build: .
+    ports:  #pass an array of string here.
+      - '4001:8081' #map port 4001 on your machine to port 8081 of your container
+    restart: always # when process exits no matter what
+    #restart: on-failure #run when the process exists with a status a status code anything other than 0.
+    #restart: 'never' don't ever restart the container
